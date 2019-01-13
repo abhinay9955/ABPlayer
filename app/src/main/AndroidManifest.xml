@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.yoyo.abhinay599.abplayer">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:screenOrientation="portrait"
+        android:supportsRtl="true"
+        android:theme="@style/AppName">
+        <activity android:name=".MainActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <receiver android:name=".phonereciever">
+            <intent-filter>
+                <action android:name="android.intent.action.READ_PHONE_STATE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".Broadcastlistener">
+            <intent-filter>
+                <action android:name=" com.yoyo.abhinay599.abplayer.play"/>
+                <action android:name=" com.yoyo.abhinay599.abplayer.next"/>
+                <action android:name=" com.yoyo.abhinay599.abplayer.previous"/>
+                <action android:name=" com.yoyo.abhinay599.abplayer.pause"/>
+            </intent-filter>
+        </receiver>
+        <service android:name=".Myservice"/>
+        <activity
+            android:name=".player"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".songslist" android:screenOrientation="portrait"></activity>
+    </application>
+
+</manifest>
